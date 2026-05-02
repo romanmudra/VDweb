@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Portfolio | Příběhy z výšky</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #faf9f6; color: #1a1a1a; }
+        .serif { font-family: 'Playfair Display', serif; }
+        .img-mask { clip-path: inset(0 0 0 0 rounded 2rem); }
+    </style>
+</head>
+<body>
+
+    <!-- Navigace -->
+    <nav class="p-8 flex justify-between items-center">
+        <div class="serif text-2xl italic tracking-tight">Studio.Drone</div>
+        <div class="space-x-8 text-sm uppercase tracking-widest font-semibold">
+            <a href="#work" class="hover:opacity-50 transition">Portfolio</a>
+            <a href="#about" class="hover:opacity-50 transition">O mně</a>
+            <a href="#contact" class="border-b-2 border-black pb-1">Napište mi</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="px-8 pt-20 pb-40">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="serif text-7xl md:text-[10rem] leading-[0.8] mb-12 tracking-tighter">
+                Vidět <br> <span class="italic ml-20 md:ml-40">neviděné.</span>
+            </h1>
+            <div class="grid md:grid-cols-2 gap-12 items-end">
+                <p class="text-xl text-gray-600 max-w-sm leading-relaxed">
+                    Nezatěžuji vás technickými parametry. Nabízím emoci a perspektivu, která vaši nemovitost nebo svatbu promění v kinematografický zážitek.
+                </p>
+                <div class="rounded-[3rem] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200" class="w-full h-80 object-cover" alt="Nature">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Práce -->
+    <section id="work" class="px-8 py-24 bg-[#1a1a1a] text-[#faf9f6] rounded-t-[4rem]">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-20">
+                <h2 class="serif text-5xl">Vybrané projekty</h2>
+                <span class="text-sm opacity-50 uppercase tracking-widest">2024—Present</span>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Projekt 1 -->
+                <div class="group cursor-pointer">
+                    <div class="rounded-[2rem] overflow-hidden mb-6 aspect-video">
+                        <img src="https://images.unsplash.com/photo-1449156001931-82992a472690?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    </div>
+                    <h3 class="serif text-2xl mb-2">Rezidence u Lesa</h3>
+                    <p class="text-sm opacity-60 uppercase tracking-widest italic">Realitní video & Foto</p>
+                </div>
+                
+                <!-- Projekt 2 -->
+                <div class="group cursor-pointer">
+                    <div class="rounded-[2rem] overflow-hidden mb-6 aspect-video">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    </div>
+                    <h3 class="serif text-2xl mb-2">Příběh v horách</h3>
+                    <p class="text-sm opacity-60 uppercase tracking-widest italic">Svatební cinematografie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
