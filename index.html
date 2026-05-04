@@ -3,141 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>VISTADRONE | Letecké práce a video produkce</title>
+    <title>VISTADRONE | Profesionální záběry z dronu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        heading: ['Syncopate', 'sans-serif'],
-                        body: ['Work Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: '#00f2fe', // Tyrkysová pro tech/reality
-                        accent: '#ff0055', // Neonově červená pro svatby/emoce
-                        dark: '#050509',
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050509; color: white; font-family: 'Work Sans', sans-serif; }
-        .font-heading { font-family: 'Syncopate', sans-serif; text-transform: uppercase; letter-spacing: -0.05em; }
-        
-        /* Skleněný efekt */
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
-        
-        /* Neonový stín */
-        .neon-shadow-brand { box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
-        .neon-shadow-accent { box-shadow: 0 0 15px rgba(255, 0, 85, 0.3); }
-
-        /* Vylepšené pozadí Hero sekce - simulace 4K videa */
-        .hero-bg { 
-            background: linear-gradient(to bottom, rgba(5,5,9,0.2), #050509), 
-            url('https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=100&w=2560'); 
+        body { background-color: #050507; color: white; font-family: 'Inter', sans-serif; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        .hero-bg {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), 
+            url('https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=1920');
             background-size: cover; background-position: center;
-            background-attachment: fixed; /* Parallax efekt */
         }
-
-        /* Animace pro tlačítka */
-        .btn-animate { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .btn-animate:hover { transform: translateY(-3px) scale(1.02); }
+        .text-outline-glow { text-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+        .secondary-text-glow { color: rgba(255, 255, 255, 0.3); }
+        .btn-cyan {
+            background-color: #00f2ff; color: black;
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-cyan:hover { background-color: white; transform: scale(1.05); }
     </style>
 </head>
 <body>
 
-    <!-- Navigace - Ultra minimalismus -->
-    <nav class="fixed w-full z-50 px-6 py-5">
-        <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-full px-8 py-4">
-            <div class="font-heading text-xl tracking-tighter">DRONE<span class="text-brand">PRO</span></div>
-            <div class="hidden md:flex space-x-10 text-xs font-semibold uppercase tracking-[0.2em]">
-                <a href="#reality" class="hover:text-brand transition duration-300">Reality</a>
-                <a href="#svatby" class="hover:text-accent transition duration-300">Svatby</a>
-                <a href="#kontakt" class="hover:opacity-70 transition">Kontakt</a>
+    <!-- Navigace -->
+    <nav class="fixed w-full z-50 px-10 py-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- TADY JE TA ZMĚNA NÁZVU -->
+            <div class="font-orbitron text-2xl font-black tracking-tighter uppercase">
+                VISTA<span class="text-[#00f2ff]">DRONE</span>
             </div>
-            <a href="#kontakt" class="bg-white text-dark px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider btn-animate">Poptat</a>
+            
+            <div class="hidden md:flex space-x-12 text-[10px] font-black uppercase tracking-[0.3em]">
+                <a href="#reality" class="hover:text-[#00f2ff] transition">Reality</a>
+                <a href="#svatby" class="hover:text-[#00f2ff] transition">Svatby</a>
+                <a href="#kontakt" class="hover:text-[#00f2ff] transition">Kontakt</a>
+            </div>
+
+            <a href="#kontakt" class="bg-white text-black px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-[#00f2ff] transition">
+                Poptat
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Sekce - Dramatický vstup -->
+    <!-- Hero Sekce -->
     <header class="h-screen flex items-center justify-center text-center px-4 hero-bg">
         <div class="max-w-5xl">
-            <span class="text-brand font-bold tracking-[0.4em] uppercase text-xs mb-6 block opacity-80">Aerial Cinematography / DJI Mini 4 Pro</span>
-            <h1 class="font-heading text-6xl md:text-8xl mb-8 leading-[0.95] tracking-tighter">Změňte<br> <span class="text-white/20 text-outline">perspektivu</span></h1>
-            <p class="text-xl text-gray-400 mb-14 font-light max-w-2xl mx-auto">Filmové 4K HDR záběry nemovitostí, které prodávají, a svatebních okamžiků, které berou dech.</p>
+            <span class="text-[#00f2ff] font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block opacity-80">
+                Aerial Cinematography / DJI Mini 4 Pro
+            </span>
+            
+            <div class="relative">
+                <h1 class="font-orbitron text-6xl md:text-[100px] font-black leading-none mb-0 text-outline-glow">
+                    ZMĚŇTE
+                </h1>
+                <h2 class="font-orbitron text-5xl md:text-[85px] font-black leading-none mt-[-10px] secondary-text-glow uppercase tracking-tight">
+                    perspektivu
+                </h2>
+            </div>
+
+            <p class="text-sm md:text-base text-gray-400 mt-12 mb-14 max-w-xl mx-auto font-light leading-relaxed">
+                Filmové 4K HDR záběry nemovitostí, které prodávají, a svatebních okamžiků, které berou dech.
+            </p>
+
             <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="#reality" class="bg-brand text-dark px-12 py-5 rounded-full font-bold text-lg btn-animate neon-shadow-brand">Realitní Portfolio</a>
-                <a href="#svatby" class="glass text-white px-12 py-5 rounded-full font-bold text-lg btn-animate hover:bg-white/5">Svatební Emoce</a>
+                <a href="#reality" class="btn-cyan px-12 py-4 rounded-full font-black text-xs uppercase tracking-[0.2em]">
+                    Realitní Portfolio
+                </a>
+                <a href="#svatby" class="bg-white/5 backdrop-blur-md border border-white/10 px-12 py-4 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition">
+                    Svatební Emoce
+                </a>
             </div>
         </div>
     </header>
-
-    <!-- Reality - Tech & Čistota -->
-    <section id="reality" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-20 items-center">
-                <div class="relative group">
-                    <div class="absolute -inset-4 bg-brand/10 rounded-[3rem] blur-xl group-hover:bg-brand/20 transition duration-500"></div>
-                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&q=80&w=1200" alt="Reality" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                    </div>
-                </div>
-                <div>
-                    <span class="text-brand font-black text-6xl opacity-10 font-heading mb-2 block">01</span>
-                    <h2 class="font-heading text-4xl mb-8 leading-tight">Prodejte nemovitost <br><span class="text-brand">rychleji</span></h2>
-                    <p class="text-gray-400 text-lg mb-10 leading-relaxed font-light">Letecké video prohlídky, kolmé pohledy na pozemek a interaktivní zakreslení hranic. Ukážu klientům celý kontext místa, nejen dům.</p>
-                    <div class="flex gap-4">
-                        <div class="glass px-6 py-3 rounded-full text-sm font-semibold tracking-wide">4K HDR Video</div>
-                        <div class="glass px-6 py-3 rounded-full text-sm font-semibold tracking-wide">Vertikální (Reels)</div>
-                        <div class="glass px-6 py-3 rounded-full text-sm font-semibold tracking-wide">Foto 48MP</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Svatby - Emoce & Teplo -->
-    <section id="svatby" class="py-32 px-6 bg-white/[0.01]">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-20 items-center">
-                <div class="order-2 md:order-1">
-                    <span class="text-accent font-black text-6xl opacity-10 font-heading mb-2 block">02</span>
-                    <h2 class="font-heading text-4xl mb-8 leading-tight">Filmové vzpomínky <br><span class="text-accent">na váš den</span></h2>
-                    <p class="text-gray-400 text-lg mb-10 leading-relaxed font-light">Diskrétní a tichý přelet zachytí měřítko místa, příchod hostů i emoce z ptačí perspektivy. Spolupracuji se svatebními fotografy.</p>
-                    <ul class="space-y-5 text-gray-300">
-                        <li class="flex items-center gap-4"><span class="w-2 h-2 bg-accent rounded-full"></span> Tichý provoz (neruší obřad)</li>
-                        <li class="flex items-center gap-4"><span class="w-2 h-2 bg-accent rounded-full"></span> Skupinové fotografie z výšky</li>
-                        <li class="flex items-center gap-4"><span class="w-2 h-2 bg-accent rounded-full"></span> Rychlé dodání (do 48h)</li>
-                    </ul>
-                </div>
-                <div class="order-1 md:order-2 relative group">
-                    <div class="absolute -inset-4 bg-accent/10 rounded-[3rem] blur-xl group-hover:bg-accent/20 transition duration-500"></div>
-                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200" alt="Svatba" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Kontakt - Čistá konverze -->
-    <section id="kontakt" class="py-40 text-center px-6">
-        <div class="max-w-3xl mx-auto glass p-16 rounded-[3rem] shadow-2xl shadow-brand/5">
-            <h2 class="font-heading text-5xl mb-6">Máte projekt?</h2>
-            <p class="text-xl text-gray-400 mb-12 font-light">Napište mi detaily a já vám připravím nezávazný vizuální plán a cenovou nabídku.</p>
-            <a href="mailto:tvuj@email.cz" class="bg-white text-dark px-16 py-6 rounded-full text-xl font-bold uppercase tracking-widest btn-animate neon-shadow-brand">
-                info@dronepro.cz
-            </a>
-            <div class="text-gray-600 mt-16 text-sm">Působím v Plzni, Praze a okolí.</div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-white/5 text-center text-gray-700 text-xs uppercase tracking-[0.2em] font-medium">
-        © 2024 DronePro Visuals | Certifikovaný pilot A1/A3 | Všechna práva vyhrazena
-    </footer>
 
 </body>
 </html>
