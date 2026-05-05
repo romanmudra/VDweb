@@ -5,94 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VISTADRONE | Profesionální záběry z dronu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         body { background-color: #050507; color: white; font-family: 'Inter', sans-serif; margin: 0; }
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
         
-        /* Návrat k původnímu pozadí s dronem v ruce */
+        /* Hero s fixním pozadím */
         .hero-bg {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(rgba(5, 5, 7, 0.4), rgba(5, 5, 7, 0.95)), 
+            background: linear-gradient(rgba(5, 5, 7, 0.4), rgba(5, 5, 7, 0.98)), 
             url('https://images.pexels.com/photos/18790610/pexels-photo-18790610.jpeg?auto=compress&cs=tinysrgb&w=1920');
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; align-items: center; justify-content: center;
         }
 
-        /* Redesign dlaždic - Moderní skleněný vzhled */
+        /* Redesign dlaždic - Čistý, symetrický Grid */
         .service-tile {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            aspect-ratio: 1 / 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
         }
         .service-tile:hover {
-            background: rgba(0, 242, 255, 0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-color: #00f2ff;
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.1);
+            transform: translateY(-4px);
         }
 
         .section-divider { border-top: 1px solid rgba(255, 255, 255, 0.05); }
-        .glass-panel { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-panel { background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); }
+        
+        /* Animace pro podtržení */
+        .hover-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #00f2ff;
+            transform-origin: bottom right;
+            transition: transform 0.4s ease-out;
+        }
+        .hover-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
     </style>
 </head>
 <body>
 
     <!-- Navigace -->
-    <nav class="fixed w-full z-50 px-6 py-4 md:px-10 bg-black/40 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed w-full z-50 px-6 py-5 md:px-12 bg-black/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="font-orbitron text-2xl font-black tracking-tighter uppercase">
+            <a href="#" class="font-orbitron text-xl font-black tracking-tighter uppercase">
                 VISTA<span class="text-[#00f2ff]">DRONE</span>
             </a>
-            <div class="hidden lg:flex space-x-10 text-[10px] font-black uppercase tracking-[0.3em]">
-                <a href="#reality" class="hover:text-[#00f2ff] transition">Reality</a>
-                <a href="#svatby" class="hover:text-[#00f2ff] transition">Svatby</a>
-                <a href="#stavby" class="hover:text-[#00f2ff] transition">Stavby</a>
-                <a href="#firmy" class="hover:text-[#00f2ff] transition">Firmy</a>
-                <a href="#kontakt" class="text-[#00f2ff]">Kontakt</a>
+            <div class="hidden lg:flex space-x-10 text-[9px] font-bold uppercase tracking-[0.4em] text-gray-400">
+                <a href="#reality" class="hover:text-white transition">Reality</a>
+                <a href="#svatby" class="hover:text-white transition">Svatby</a>
+                <a href="#stavby" class="hover:text-white transition">Stavby</a>
+                <a href="#firmy" class="hover:text-white transition">Firmy</a>
+                <a href="#kontakt" class="text-[#00f2ff] hover:brightness-125">Kontakt</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero s redesignovaným rozcestníkem -->
-    <header class="hero-bg px-4 pt-16">
-        <div class="max-w-6xl w-full text-center">
-            <span class="text-[#00f2ff] font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block opacity-80">DJI Mini 4 Pro • Plzeň & okolí</span>
-            <h1 class="font-orbitron text-6xl md:text-[110px] font-black leading-none mb-2 tracking-tighter">ZMĚŇTE</h1>
-            <h2 class="font-orbitron text-4xl md:text-[70px] font-black leading-none opacity-20 uppercase italic mb-16">perspektivu</h2>
+    <!-- Hero -->
+    <header class="hero-bg px-4">
+        <div class="max-w-5xl w-full text-center">
+            <span class="text-[#00f2ff] font-bold tracking-[0.5em] uppercase text-[9px] mb-8 block opacity-70">Letecká produkce / DJI Mini 4 Pro</span>
+            <h1 class="font-orbitron text-7xl md:text-[120px] font-black leading-none mb-2 tracking-tighter">VISTA</h1>
+            <h2 class="font-orbitron text-4xl md:text-[60px] font-light leading-none opacity-20 uppercase tracking-[0.2em] mb-20">Drone Visuals</h2>
 
-            <!-- Dlaždicový rozcestník -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mx-auto">
-                <a href="#reality" class="service-tile p-8 rounded-3xl group">
-                    <div class="text-2xl mb-3 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all">🏠</div>
-                    <div class="font-orbitron text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 group-hover:text-[#00f2ff]">Reality</div>
+            <!-- Redesignovaný rozcestník - Čtvercové dlaždice -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-6xl mx-auto">
+                <a href="#reality" class="service-tile rounded-2xl group">
+                    <span class="text-2xl mb-3 group-hover:scale-110 transition-transform">🏠</span>
+                    <span class="font-orbitron text-[8px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#00f2ff]">Reality</span>
                 </a>
-                <a href="#svatby" class="service-tile p-8 rounded-3xl group">
-                    <div class="text-2xl mb-3 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all">💍</div>
-                    <div class="font-orbitron text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 group-hover:text-[#00f2ff]">Svatby</div>
+                <a href="#svatby" class="service-tile rounded-2xl group">
+                    <span class="text-2xl mb-3 group-hover:scale-110 transition-transform">💍</span>
+                    <span class="font-orbitron text-[8px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#00f2ff]">Svatby</span>
                 </a>
-                <a href="#stavby" class="service-tile p-8 rounded-3xl group">
-                    <div class="text-2xl mb-3 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all">🏗️</div>
-                    <div class="font-orbitron text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 group-hover:text-[#00f2ff]">Stavby</div>
+                <a href="#stavby" class="service-tile rounded-2xl group">
+                    <span class="text-2xl mb-3 group-hover:scale-110 transition-transform">🏗️</span>
+                    <span class="font-orbitron text-[8px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#00f2ff]">Stavby</span>
                 </a>
-                <a href="#firmy" class="service-tile p-8 rounded-3xl group">
-                    <div class="text-2xl mb-3 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all">🏢</div>
-                    <div class="font-orbitron text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 group-hover:text-[#00f2ff]">Firmy</div>
+                <a href="#firmy" class="service-tile rounded-2xl group">
+                    <span class="text-2xl mb-3 group-hover:scale-110 transition-transform">🏢</span>
+                    <span class="font-orbitron text-[8px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#00f2ff]">Firmy</span>
                 </a>
-                <a href="#soukrome" class="service-tile p-8 rounded-3xl group">
-                    <div class="text-2xl mb-3 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all">📸</div>
-                    <div class="font-orbitron text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 group-hover:text-[#00f2ff]">Soukromé</div>
+                <a href="#soukrome" class="service-tile rounded-2xl group">
+                    <span class="text-2xl mb-3 group-hover:scale-110 transition-transform">📸</span>
+                    <span class="font-orbitron text-[8px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#00f2ff]">Privátní</span>
                 </a>
-                <a href="#inspekce" class="service-tile p-8 rounded-3xl group">
-                    <div class="text-2xl mb-3 opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all text-[#00f2ff]">⚡</div>
-                    <div class="font-orbitron text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 group-hover:text-[#00f2ff]">Inspekce</div>
+                <a href="#inspekce" class="service-tile rounded-2xl group">
+                    <span class="text-2xl mb-3 group-hover:scale-110 transition-transform text-[#00f2ff]">⚡</span>
+                    <span class="font-orbitron text-[8px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#00f2ff]">Inspekce</span>
                 </a>
             </div>
         </div>
@@ -100,100 +121,97 @@
 
     <!-- Sekce: Reality -->
     <section id="reality" class="py-32 px-6 section-divider">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div>
-                <h3 class="font-orbitron text-[#00f2ff] text-xs font-bold tracking-[0.4em] mb-4">01 / REALITY</h3>
-                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">PRODEJTE<br>RYCHLEJI</h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-8">Letecké video prohlídky dají zájemcům jasný přehled o lokalitě a stavu střechy i okolí. Pro realitní makléře je to dnes standard, který odlišuje prémiové nabídky.</p>
-                <div class="flex gap-6 font-bold text-[10px] tracking-widest text-[#00f2ff]">
-                    <span>4K VIDEO</span> <span>PHOTO PACK</span> <span>MAPOVÁNÍ</span>
+                <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">01 / Nemovitosti</h3>
+                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">VÝJIMEČNÁ<br>PREZENTACE</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Zvyšte hodnotu svých nabídek. Letecké video prohlídky a high-res fotografie jsou dnes klíčovým prvkem při prodeji prémiových nemovitostí.</p>
+                <div class="flex gap-8 font-bold text-[9px] tracking-[0.3em] text-[#00f2ff] opacity-80">
+                    <span>4K HDR VIDEO</span> <span>PROFI FOTO</span>
                 </div>
             </div>
-            <div class="glass-panel p-4 rounded-[2rem]">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000" class="rounded-2xl" alt="Reality">
+            <div class="glass-panel p-2 rounded-[2.5rem]">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem] grayscale hover:grayscale-0 transition duration-1000" alt="Reality">
             </div>
         </div>
     </section>
 
     <!-- Sekce: Svatby -->
     <section id="svatby" class="py-32 px-6 bg-white/[0.01] section-divider">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div class="md:order-2">
-                <h3 class="font-orbitron text-[#00f2ff] text-xs font-bold tracking-[0.4em] mb-4">02 / SVATBY</h3>
-                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">FILMOVÉ<br>EMOCE</h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-8">Příjezd k oltáři, společné focení v přírodě nebo večerní zábava pod širým nebem. Dron zachytí měřítko a atmosféru, kterou ze země neuvidíte.</p>
-                <a href="#kontakt" class="inline-block border border-[#00f2ff] text-[#00f2ff] px-10 py-3 rounded-full font-bold text-[10px] tracking-widest hover:bg-[#00f2ff] hover:text-black transition">MÁM ZÁJEM</a>
+                <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">02 / Emoce</h3>
+                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">FILMOVÉ<br>VZPOMÍNKY</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Zachytíme měřítko a atmosféru vašeho dne. Od obřadů v přírodě po večerní oslavy – dron dodá vašemu svatebnímu videu filmový nádech.</p>
+                <a href="#kontakt" class="inline-block border-b border-[#00f2ff] text-[#00f2ff] pb-2 font-bold text-[10px] tracking-[0.3em] hover:text-white transition">POPTAT TERMÍN</a>
             </div>
-            <div class="md:order-1 glass-panel p-4 rounded-[2rem]">
-                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000" class="rounded-2xl" alt="Svatby">
+            <div class="md:order-1 glass-panel p-2 rounded-[2.5rem]">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem]" alt="Svatby">
             </div>
         </div>
     </section>
 
     <!-- Sekce: Stavby -->
     <section id="stavby" class="py-32 px-6 section-divider">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div>
-                <h3 class="font-orbitron text-[#00f2ff] text-xs font-bold tracking-[0.4em] mb-4">03 / STAVBY</h3>
-                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">STAVEBNÍ<br>DOZOR</h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-8">Dokumentujte postup prací pro investory. Časosběrné záběry z dálky i detailní pohledy na těžko přístupné konstrukce.</p>
-                <ul class="text-xs space-y-2 font-bold opacity-60">
-                    <li>✓ PRAVIDELNÝ MONITORING</li>
-                    <li>✓ PODKLADY PRO KOLAUDACI</li>
-                </ul>
+                <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">03 / Kontrola</h3>
+                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">STAVEBNÍ<br>PROCES</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Pravidelný monitoring postupu prací pro investory, časosběrné dokumentace a revize těžko přístupných konstrukcí.</p>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="border-l border-[#00f2ff]/30 pl-4 uppercase font-bold text-[9px] tracking-widest text-gray-500">Časosběry</div>
+                    <div class="border-l border-[#00f2ff]/30 pl-4 uppercase font-bold text-[9px] tracking-widest text-gray-500">Revize</div>
+                </div>
             </div>
-            <div class="glass-panel p-4 rounded-[2rem]">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000" class="rounded-2xl" alt="Stavby">
+            <div class="glass-panel p-2 rounded-[2.5rem]">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem]" alt="Stavby">
             </div>
         </div>
     </section>
 
-    <!-- Sekce: Firmy (Nová) -->
+    <!-- Sekce: Další služby (Grid) -->
     <section id="firmy" class="py-32 px-6 bg-white/[0.01] section-divider">
         <div class="max-w-6xl mx-auto text-center">
-            <h3 class="font-orbitron text-[#00f2ff] text-xs font-bold tracking-[0.4em] mb-4">04 / FIRMY</h3>
-            <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter">FIREMNÍ PROMO & EVENTY</h2>
-            <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-12">Představte svůj areál, hotel nebo teambuilding moderním způsobem. Záběry pro sociální sítě, které zaujmou na první pohled.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-8 glass-panel rounded-3xl">Areály firem</div>
-                <div class="p-8 glass-panel rounded-3xl">Reklamní spoty</div>
-                <div class="p-8 glass-panel rounded-3xl">Kulturní akce</div>
+            <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-16 uppercase">Doplňkové služby</h3>
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <!-- Firmy -->
+                <div id="firmy" class="p-10 glass-panel rounded-3xl">
+                    <h4 class="font-orbitron text-lg font-black mb-4 uppercase tracking-tighter">Firemní promo</h4>
+                    <p class="text-gray-500 text-sm font-light">Představení areálů, hotelů a firemních eventů moderní formou pro sociální sítě.</p>
+                </div>
+                <!-- Soukromé -->
+                <div id="soukrome" class="p-10 glass-panel rounded-3xl">
+                    <h4 class="font-orbitron text-lg font-black mb-4 uppercase tracking-tighter">Privátní focení</h4>
+                    <p class="text-gray-500 text-sm font-light">Originální portréty v krajině nebo detailní záběry vašeho domu a zahrady.</p>
+                </div>
+                <!-- Inspekce -->
+                <div id="inspekce" class="p-10 glass-panel rounded-3xl border-[#00f2ff]/20">
+                    <h4 class="font-orbitron text-lg font-black mb-4 uppercase tracking-tighter">Inspekce</h4>
+                    <p class="text-gray-500 text-sm font-light">Rychlá revize střech, okapů a komínů bez nutnosti stavět nákladné lešení.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Sekce: Soukromé & Inspekce -->
-    <section id="soukrome" class="py-32 px-6 section-divider">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-            <div id="soukrome_box" class="p-12 glass-panel rounded-[3rem]">
-                <h4 class="font-orbitron text-[#00f2ff] text-xs mb-4 uppercase">05 / Soukromé</h4>
-                <h3 class="text-3xl font-black mb-6">FOCENÍ PRO RADOST</h3>
-                <p class="text-gray-500">Foto vašeho domu v krajině, natáčení sportovních aktivit nebo originální portrét z výšky.</p>
-            </div>
-            <div id="inspekce" class="p-12 glass-panel rounded-[3rem] border-[#00f2ff]/20">
-                <h4 class="font-orbitron text-[#00f2ff] text-xs mb-4 uppercase">06 / Inspekce</h4>
-                <h3 class="text-3xl font-black mb-6">TECHNICKÁ KONTROLA</h3>
-                <p class="text-gray-500">Místo lešení použijte dron. Rychlá kontrola střech, okapů, komínů a výškových konstrukcí.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Kontakt - Redesignovaný konec (Zjemněný) -->
-    <section id="kontakt" class="py-32 px-6 bg-gradient-to-b from-[#050507] to-[#0a0a0c] section-divider text-center">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="font-orbitron text-4xl md:text-6xl font-black mb-8 tracking-tighter text-white">PŘIPRAVENI K ODLETU?</h2>
-            <p class="text-gray-500 mb-12 font-bold uppercase text-[10px] tracking-[0.4em]">Plzeň • Praha • Střední Čechy</p>
-            <div class="flex flex-col items-center gap-4">
-                <a href="mailto:info@vistadrone.cz" class="text-2xl md:text-5xl font-black text-[#00f2ff] hover:text-white transition-all pb-2">
+    <!-- Kontakt - ČISTÉ ZAKONČENÍ -->
+    <section id="kontakt" class="py-40 px-6 section-divider text-center">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="font-orbitron text-3xl md:text-5xl font-black mb-10 tracking-tighter">PŘIPRAVENI K ODLETU?</h2>
+            <p class="text-gray-600 mb-14 text-[9px] font-bold uppercase tracking-[0.5em]">Plzeň • Praha • Střední Čechy</p>
+            
+            <div class="mb-10">
+                <a href="mailto:info@vistadrone.cz" class="text-2xl md:text-4xl font-black hover-underline transition-all">
                     info@vistadrone.cz
                 </a>
-                <div class="w-20 h-1 bg-[#00f2ff] mt-4 opacity-50"></div>
             </div>
+            
+            <div class="mt-20 opacity-20 font-orbitron text-[8px] tracking-[1em]">VISTADRONE Visuals</div>
         </div>
     </section>
 
-    <footer class="py-10 bg-[#0a0a0c] text-center text-gray-700 text-[9px] uppercase tracking-[0.5em]">
-        © 2026 VISTADRONE • LICENCOVANÝ PILOT ÚCL
+    <!-- Footer -->
+    <footer class="py-12 bg-black text-center text-gray-800 text-[8px] uppercase tracking-[0.5em] border-t border-white/5">
+        © 2026 VISTADRONE • Pilot certifikovaný ÚCL • A1/A3
     </footer>
 
 </body>
