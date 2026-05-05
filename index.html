@@ -7,149 +7,144 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            background-color: #050507; 
-            color: white; 
-            font-family: 'Inter', sans-serif; 
-            margin: 0;
-        }
+        body { background-color: #050507; color: white; font-family: 'Inter', sans-serif; margin: 0; }
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
         
-        /* Opravené pozadí s DJI Mini 4 Pro / High-tech vizuálem */
+        /* Fixní pozadí pro Hero */
         .hero-bg {
             position: relative;
             min-height: 100vh;
-            /* Záložní gradient, kdyby se obrázek nenačetl */
-            background: linear-gradient(rgba(5, 5, 7, 0.6), rgba(5, 5, 7, 0.95)), 
-            url('https://images.unsplash.com/photo-1506947411487-a56738267384?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(rgba(5, 5, 7, 0.5), rgba(5, 5, 7, 0.95)), 
+            url('https://images.pexels.com/photos/18790610/pexels-photo-18790610.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        /* Efekty nadpisů */
-        .text-outline-glow {
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
-        }
-        .secondary-text-glow {
-            color: rgba(255, 255, 255, 0.25);
-        }
-
-        /* Karty služeb */
         .service-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
         }
-        .service-card:hover {
-            background: rgba(0, 242, 255, 0.08);
-            border-color: #00f2ff;
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 242, 255, 0.15);
-        }
+        .service-card:hover { border-color: #00f2ff; transform: translateY(-5px); background: rgba(0, 242, 255, 0.05); }
 
-        .nav-glass {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        .section-divider { border-top: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        /* Animace pro záři textu */
+        .glow-text { text-shadow: 0 0 20px rgba(0, 242, 255, 0.3); }
     </style>
 </head>
 <body>
 
     <!-- Navigace -->
-    <nav class="fixed w-full z-50 px-6 py-4 md:px-10 nav-glass">
+    <nav class="fixed w-full z-50 px-6 py-4 md:px-10 bg-black/50 backdrop-blur-xl border-b border-white/5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="font-orbitron text-2xl font-black tracking-tighter uppercase">
+            <a href="#" class="font-orbitron text-2xl font-black tracking-tighter uppercase">
                 VISTA<span class="text-[#00f2ff]">DRONE</span>
-            </div>
-            
-            <div class="hidden md:flex space-x-12 text-[10px] font-black uppercase tracking-[0.3em]">
-                <a href="#sluzby" class="hover:text-[#00f2ff] transition">Služby</a>
-                <a href="#kontakt" class="hover:text-[#00f2ff] transition text-[#00f2ff]">Kontakt</a>
-            </div>
-
-            <a href="#kontakt" class="bg-white text-black px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-[#00f2ff] transition">
-                Poptat
             </a>
+            <div class="hidden lg:flex space-x-8 text-[10px] font-black uppercase tracking-[0.2em]">
+                <a href="#reality" class="hover:text-[#00f2ff] transition">Reality</a>
+                <a href="#svatby" class="hover:text-[#00f2ff] transition">Svatby</a>
+                <a href="#stavby" class="hover:text-[#00f2ff] transition">Stavby</a>
+                <a href="#firmy" class="hover:text-[#00f2ff] transition text-gray-400">Firmy</a>
+                <a href="#kontakt" class="text-[#00f2ff] border border-[#00f2ff]/30 px-4 py-1 rounded-full">Kontakt</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Sekce -->
-    <header class="hero-bg px-4 pt-24 pb-24">
-        <div class="max-w-5xl w-full text-center">
-            <span class="text-[#00f2ff] font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block opacity-90">
-                Aerial Cinematography / DJI Mini 4 Pro
-            </span>
-            
-            <div class="relative mb-16">
-                <h1 class="font-orbitron text-6xl md:text-[110px] font-black leading-none mb-0 text-outline-glow tracking-tighter">
-                    ZMĚŇTE
-                </h1>
-                <h2 class="font-orbitron text-5xl md:text-[90px] font-black leading-none mt-[-5px] md:mt-[-15px] secondary-text-glow uppercase tracking-tight">
-                    perspektivu
-                </h2>
-            </div>
+    <!-- Úvodní Hero -->
+    <header class="hero-bg px-4">
+        <div class="max-w-5xl w-full text-center pt-20">
+            <span class="text-[#00f2ff] font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block">Plzeň • Praha • Střední Čechy</span>
+            <h1 class="font-orbitron text-6xl md:text-[100px] font-black leading-none mb-4 tracking-tighter uppercase">ZMĚŇTE</h1>
+            <h2 class="font-orbitron text-4xl md:text-[70px] font-black leading-none opacity-30 uppercase italic mb-16">perspektivu</h2>
 
-            <!-- Rozcestník služeb -->
-            <div id="sluzby" class="grid grid-cols-2 md:grid-cols-3 gap-5 max-w-3xl mx-auto px-4">
-                
-                <a href="#kontakt" class="service-card p-7 rounded-2xl group">
-                    <div class="text-[#00f2ff] text-3xl mb-3 group-hover:scale-110 transition-transform">🏠</div>
-                    <div class="font-orbitron text-[9px] font-black uppercase tracking-widest leading-none">Reality</div>
-                </a>
-
-                <a href="#kontakt" class="service-card p-7 rounded-2xl group">
-                    <div class="text-[#00f2ff] text-3xl mb-3 group-hover:scale-110 transition-transform">💍</div>
-                    <div class="font-orbitron text-[9px] font-black uppercase tracking-widest leading-none">Svatby</div>
-                </a>
-
-                <a href="#kontakt" class="service-card p-7 rounded-2xl group">
-                    <div class="text-[#00f2ff] text-3xl mb-3 group-hover:scale-110 transition-transform">🏗️</div>
-                    <div class="font-orbitron text-[9px] font-black uppercase tracking-widest leading-none">Stavby</div>
-                </a>
-
-                <a href="#kontakt" class="service-card p-7 rounded-2xl group">
-                    <div class="text-[#00f2ff] text-3xl mb-3 group-hover:scale-110 transition-transform">🏢</div>
-                    <div class="font-orbitron text-[9px] font-black uppercase tracking-widest leading-none">Firemní akce</div>
-                </a>
-
-                <a href="#kontakt" class="service-card p-7 rounded-2xl group">
-                    <div class="text-[#00f2ff] text-3xl mb-3 group-hover:scale-110 transition-transform">📸</div>
-                    <div class="font-orbitron text-[9px] font-black uppercase tracking-widest leading-none">Soukromé</div>
-                </a>
-
-                <a href="#kontakt" class="service-card p-7 rounded-2xl group">
-                    <div class="text-[#00f2ff] text-3xl mb-3 group-hover:scale-110 transition-transform">⚡</div>
-                    <div class="font-orbitron text-[9px] font-black uppercase tracking-widest leading-none">Inspekce</div>
-                </a>
-
+            <!-- Rychlý rozcestník -->
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-3 max-w-5xl mx-auto">
+                <a href="#reality" class="service-card p-4 rounded-xl text-[9px] font-black uppercase tracking-widest">Reality</a>
+                <a href="#svatby" class="service-card p-4 rounded-xl text-[9px] font-black uppercase tracking-widest">Svatby</a>
+                <a href="#stavby" class="service-card p-4 rounded-xl text-[9px] font-black uppercase tracking-widest">Stavby</a>
+                <a href="#firmy" class="service-card p-4 rounded-xl text-[9px] font-black uppercase tracking-widest">Firmy</a>
+                <a href="#soukrome" class="service-card p-4 rounded-xl text-[9px] font-black uppercase tracking-widest">Soukromé</a>
+                <a href="#inspekce" class="service-card p-4 rounded-xl text-[9px] font-black uppercase tracking-widest text-[#00f2ff]">Inspekce</a>
             </div>
         </div>
     </header>
 
-    <!-- Sekce Kontakt -->
-    <section id="kontakt" class="py-36 px-6 bg-[#050507] border-t border-white/5">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="font-orbitron text-4xl md:text-6xl font-black mb-10 tracking-tighter">PŘIPRAVENI K ODLETU?</h2>
-            <p class="text-gray-400 mb-14 max-w-lg mx-auto text-lg font-light leading-relaxed">
-                Napište mi detaily vašeho projektu a já vám připravím nabídku na míru.
-            </p>
-            <a href="mailto:info@vistadrone.cz" class="text-2xl md:text-5xl font-bold text-[#00f2ff] hover:text-white transition-all border-b-4 border-[#00f2ff] pb-3">
-                info@vistadrone.cz
-            </a>
-            <div class="mt-24 text-[11px] text-gray-700 tracking-[0.6em] uppercase font-bold">
-                Plzeň • Praha • Střední Čechy
+    <!-- Sekce: Reality -->
+    <section id="reality" class="py-32 px-6 section-divider">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h3 class="font-orbitron text-[#00f2ff] text-xs font-black tracking-[0.4em] uppercase mb-4">01. Realitní segment</h3>
+                <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter uppercase">REALITY & <br>POZEMKY</h2>
+                <p class="text-gray-400 leading-relaxed mb-8">Získejte konkurenční výhodu na trhu nemovitostí. Letecké záběry dají kupujícím jasnou představu o okolí, rozloze pozemku a architektuře domu. Ideální pro luxusní rezidence i komerční areály.</p>
+                <div class="flex gap-4 font-black text-[10px] uppercase tracking-widest text-[#00f2ff]">
+                    <span>• 4K Video prohlídky</span>
+                    <span>• Ortofotomapy</span>
+                </div>
+            </div>
+            <div class="aspect-video bg-white/5 rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="Reality">
             </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center text-gray-600 text-[10px] uppercase tracking-[0.3em] border-t border-white/5">
-        © 2024 VISTADRONE Visuals | Pilot certifikovaný ÚCL (A1/A3)
+    <!-- Sekce: Svatby -->
+    <section id="svatby" class="py-32 px-6 bg-white/[0.02] section-divider">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="md:order-2">
+                <h3 class="font-orbitron text-[#00f2ff] text-xs font-black tracking-[0.4em] uppercase mb-4">02. Emoce z výšky</h3>
+                <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter uppercase">SVATEBNÍ <br>CINEMA</h2>
+                <p class="text-gray-400 leading-relaxed mb-8">Váš velký den si zaslouží filmovou perspektivu. Zachytím příjezd novomanželů, obřad pod širým nebem i atmosféru celé svatby způsobem, který běžná kamera nedokáže.</p>
+                <a href="#kontakt" class="inline-block border border-white/20 px-8 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition">Poptat termín</a>
+            </div>
+            <div class="md:order-1 aspect-square md:aspect-video bg-white/5 rounded-3xl overflow-hidden border border-white/10">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover" alt="Svatby">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce: Stavby -->
+    <section id="stavby" class="py-32 px-6 section-divider">
+        <div class="max-w-6xl mx-auto text-center">
+            <h3 class="font-orbitron text-[#00f2ff] text-xs font-black tracking-[0.4em] uppercase mb-4">03. Průběh výstavby</h3>
+            <h2 class="text-4xl md:text-6xl font-black mb-12 tracking-tighter uppercase">STAVBY & PROJEKTY</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="text-2xl mb-4">🕒</div>
+                    <h4 class="font-black uppercase text-sm mb-4">Časosběr</h4>
+                    <p class="text-xs text-gray-500">Pravidelné monitorování postupu prací pro investory.</p>
+                </div>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="text-2xl mb-4">📐</div>
+                    <h4 class="font-black uppercase text-sm mb-4">Dokumentace</h4>
+                    <p class="text-xs text-gray-500">Detailní podklady pro kolaudace a prezentaci projektu.</p>
+                </div>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
+                    <div class="text-2xl mb-4">🏗️</div>
+                    <h4 class="font-black uppercase text-sm mb-4">Bezpečnost</h4>
+                    <p class="text-xs text-gray-500">Kontrola těžko dostupných míst jeřábů a konstrukcí.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekce: Kontakt -->
+    <section id="kontakt" class="py-40 px-6 bg-[#00f2ff] text-black rounded-t-[3rem] md:rounded-t-[6rem]">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-orbitron text-5xl md:text-8xl font-black mb-10 tracking-tighter uppercase">LET'S FLY</h2>
+            <p class="text-black/60 mb-12 max-w-lg mx-auto font-bold uppercase text-xs tracking-widest leading-loose">
+                Máte projekt? Potřebujete unikátní záběry? Jsem připraven k odletu.
+            </p>
+            <a href="mailto:info@vistadrone.cz" class="text-2xl md:text-5xl font-black border-b-4 border-black pb-2 hover:opacity-70 transition">
+                info@vistadrone.cz
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-black text-center text-gray-600 text-[10px] uppercase tracking-[0.3em]">
+        © 2026 VISTADRONE • Pilot A1/A3 certifikovaný ÚCL
     </footer>
 
 </body>
