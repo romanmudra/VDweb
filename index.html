@@ -11,18 +11,51 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050507; color: white; font-family: 'Inter', sans-serif; margin: 0; }
+        body { background-color: #050507; color: white; font-family: 'Inter', sans-serif; margin: 0; overflow-x: hidden; }
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
         
-        .hero-bg {
+        /* DIAGONÁLNÍ POZADÍ - CSS Kouzlo */
+        .slice-container {
+            position: absolute;
+            top: 0; left: -5%; width: 110%; height: 100%;
+            display: flex;
+            z-index: -2;
+            background: #050507;
+        }
+        .slice-bg {
+            flex: 1;
+            height: 100%;
             position: relative;
-            min-height: 100vh;
-            background: linear-gradient(rgba(5, 5, 7, 0.4), rgba(5, 5, 7, 0.98)), 
-            url('https://images.pexels.com/photos/18790610/pexels-photo-18790610.jpeg?auto=compress&cs=tinysrgb&w=1920');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            display: flex; align-items: center; justify-content: center;
+            transform: skewX(-15deg); /* Šikmý řez podle tvého nákresu */
+            margin: 0 -1%; /* Jemné překrytí, aby nebyly mezery */
+            overflow: hidden;
+            border-right: 1px solid rgba(0, 242, 255, 0.2);
+        }
+        .slice-img {
+            position: absolute;
+            top: 0; left: 50%;
+            width: 100vw; height: 100%;
+            object-fit: cover;
+            transform: translateX(-50%) skewX(15deg); /* Narovnání fotky zpět, aby nebyla zdeformovaná */
+            filter: grayscale(100%) brightness(0.25); /* Tmavý černobílý výchozí stav */
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        /* Hover efekt na jednotlivé pruhy v pozadí */
+        .slice-bg:hover .slice-img {
+            filter: grayscale(0%) brightness(0.6);
+            transform: translateX(-50%) skewX(15deg) scale(1.05);
         }
 
+        /* Overlay pro čitelnost textu */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(5,5,7,0.3) 0%, #050507 100%);
+            z-index: -1;
+            pointer-events: none; /* Propustí myš skrz na ty pruhy pod ním */
+        }
+
+        /* Ostatní styly */
         .service-tile {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -41,33 +74,13 @@
         }
 
         .section-divider { border-top: 1px solid rgba(255, 255, 255, 0.05); }
-        .glass-panel { 
-            background: rgba(255, 255, 255, 0.015); 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(5px); 
-            overflow: hidden; /* Důležité pro zoom efekt fotky uvnitř */
-        }
+        .glass-panel { background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); overflow: hidden; }
         
-        .hover-underline {
-            position: relative;
-            display: inline-block;
-        }
+        .hover-underline { position: relative; display: inline-block; }
         .hover-underline::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #00f2ff;
-            transform-origin: bottom right;
-            transition: transform 0.4s ease-out;
+            content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 2px; bottom: -4px; left: 0; background-color: #00f2ff; transform-origin: bottom right; transition: transform 0.4s ease-out;
         }
-        .hover-underline:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
+        .hover-underline:hover::after { transform: scaleX(1); transform-origin: bottom left; }
     </style>
 </head>
 <body>
@@ -90,12 +103,27 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="hero-bg px-4">
-        <div class="max-w-5xl w-full text-center">
-            <span class="text-[#00f2ff] font-bold tracking-[0.5em] uppercase text-[9px] mb-8 block opacity-70">Letecká produkce / DJI Mini 4 Pro</span>
+    <!-- Úvodní Hero s diagonálním pozadím -->
+    <header class="relative min-h-[100vh] flex items-center justify-center px-4 overflow-hidden pt-20">
+        
+        <!-- Diagonální pruhy (Tvoje malování převedené do kódu) -->
+        <div class="slice-container">
+            <div class="slice-bg"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000" class="slice-img" alt="Nemovitosti"></div>
+            <div class="slice-bg"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000" class="slice-img" alt="Svatby"></div>
+            <div class="slice-bg"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000" class="slice-img" alt="Stavby"></div>
+            <div class="slice-bg"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" class="slice-img" alt="Firmy"></div>
+            <div class="slice-bg"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=1000" class="slice-img" alt="Soukromé"></div>
+            <div class="slice-bg"><img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&q=80&w=1000" class="slice-img" alt="Inspekce"></div>
+        </div>
+
+        <!-- Ochranný stín, aby byl text čitelný -->
+        <div class="hero-overlay"></div>
+
+        <!-- Obsah nad pozadím -->
+        <div class="max-w-5xl w-full text-center relative z-10">
+            <span class="text-[#00f2ff] font-bold tracking-[0.5em] uppercase text-[9px] mb-8 block opacity-90">Letecká produkce / DJI Mini 4 Pro</span>
             <h1 class="font-orbitron text-7xl md:text-[120px] font-black leading-none mb-2 tracking-tighter">VISTA</h1>
-            <h2 class="font-orbitron text-4xl md:text-[60px] font-light leading-none opacity-20 uppercase tracking-[0.2em] mb-20">Drone Visuals</h2>
+            <h2 class="font-orbitron text-4xl md:text-[60px] font-light leading-none opacity-40 uppercase tracking-[0.2em] mb-20">Drone Visuals</h2>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-6xl mx-auto">
                 <a href="#nemovitosti" class="service-tile rounded-2xl group">
@@ -149,7 +177,7 @@
             <div class="md:order-2">
                 <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">02 / Svatby</h3>
                 <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">FILMOVÉ<br>VZPOMÍNKY</h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Zachytíme měřítko a atmosféru vašeho dne. Od obřadů v přírodě po večerní oslavy – dron dodá vašemu svatebnímu videu filmový nádech.</p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Dodejte svému svatebnímu videu skutečně filmový rozměr. Dechberoucí záběry z výšky zachytí nejen krásu lokality, ale i neopakovatelnou atmosféru vašeho velkého dne.</p>
                 <a href="#kontakt" class="inline-block border-b border-[#00f2ff] text-[#00f2ff] pb-2 font-bold text-[10px] tracking-[0.3em] uppercase hover:text-white transition">Poptat termín</a>
             </div>
             <div class="md:order-1 glass-panel p-2 rounded-[2.5rem] group cursor-pointer">
@@ -164,7 +192,7 @@
             <div>
                 <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">03 / Stavby</h3>
                 <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">STAVEBNÍ<br>PROCES</h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Pravidelný monitoring postupu prací pro investory, časosběrné dokumentace a revize těžko přístupných konstrukcí.</p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Získejte absolutní přehled o průběhu projektu. Pravidelný letecký monitoring a detailní dokumentace představují ideální a efektivní nástroj pro investory i stavební deníky.</p>
                 <div class="grid grid-cols-2 gap-8">
                     <div class="border-l border-[#00f2ff]/30 pl-4 uppercase font-bold text-[9px] tracking-widest text-[#00f2ff]">Časosběry</div>
                     <div class="border-l border-[#00f2ff]/30 pl-4 uppercase font-bold text-[9px] tracking-widest text-[#00f2ff]">Revize</div>
@@ -182,7 +210,7 @@
             <div class="md:order-2">
                 <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">04 / Firmy</h3>
                 <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">FIREMNÍ<br>PRODUKCE</h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Představte svůj areál, hotel nebo teambuilding moderním způsobem. Záběry pro sociální sítě, které zaujmou na první pohled.</p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Odlište svou značku dynamickou a moderní prezentací. Úderné záběry firemních areálů, hotelů či velkých eventů zaručeně přitáhnou pozornost na sociálních sítích i v reklamě.</p>
                 <div class="flex gap-8 font-bold text-[9px] tracking-[0.3em] text-[#00f2ff] uppercase">
                     <span>Firemní videa</span> <span>Hotely & Areály</span>
                 </div>
@@ -199,7 +227,7 @@
             <div>
                 <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">05 / Soukromé</h3>
                 <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">FOCENÍ<br>PRO RADOST</h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Originální památka. Foto vašeho domu v krajině, natáčení rodinných a sportovních aktivit nebo originální portrét z výšky.</p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Proměňte běžné okamžiky ve výjimečné vzpomínky. Ať už jde o krásnou fotku vašeho domu v krajině, nebo dynamické natáčení sportu, vytvořím vám originální památku.</p>
                 <div class="flex gap-8 font-bold text-[9px] tracking-[0.3em] text-[#00f2ff] uppercase">
                     <span>Rodinná fota</span> <span>Sport & Hobby</span>
                 </div>
@@ -216,7 +244,7 @@
             <div class="md:order-2">
                 <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">06 / Inspekce</h3>
                 <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">INSPEKCE<br>STAVEB</h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Místo lešení nebo plošiny použijte dron. Extrémně rychlá a bezpečná kontrola střech, okapů, komínů a výškových konstrukcí.</p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Šetřete čas, peníze a minimalizujte rizika. Detailní vizuální kontrola těžko dostupných střech a výškových konstrukcí pomocí dronu zcela nahradí drahé lešení či plošiny.</p>
                 <div class="flex gap-8 font-bold text-[9px] tracking-[0.3em] text-[#00f2ff] uppercase">
                     <span>Bezpečně</span> <span>Rychle & efektivně</span>
                 </div>
