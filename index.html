@@ -20,7 +20,7 @@
             display: flex; align-items: center; justify-content: center;
         }
 
-        /* Redesign dlaždic - Čistý, symetrický Grid */
+        /* Redesign dlaždic */
         .service-tile {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -41,7 +41,7 @@
         .section-divider { border-top: 1px solid rgba(255, 255, 255, 0.05); }
         .glass-panel { background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); }
         
-        /* Animace pro podtržení */
+        /* Animace pro podtržení e-mailu */
         .hover-underline {
             position: relative;
             display: inline-block;
@@ -66,13 +66,12 @@
 </head>
 <body>
 
-    <!-- Navigace (Doplněny všechny služby) -->
+    <!-- Navigace -->
     <nav class="fixed w-full z-50 px-6 py-5 md:px-12 bg-black/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="#" class="font-orbitron text-xl font-black tracking-tighter uppercase">
                 VISTA<span class="text-[#00f2ff]">DRONE</span>
             </a>
-            <!-- Zmenšené mezery a přidané sekce Soukromé a Inspekce -->
             <div class="hidden lg:flex space-x-7 text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
                 <a href="#reality" class="hover:text-white transition">Reality</a>
                 <a href="#svatby" class="hover:text-white transition">Svatby</a>
@@ -122,7 +121,7 @@
         </div>
     </header>
 
-    <!-- Sekce: Reality -->
+    <!-- Sekce 01: Reality (Text vlevo, obrázek vpravo) -->
     <section id="reality" class="py-32 px-6 section-divider">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div>
@@ -139,22 +138,24 @@
         </div>
     </section>
 
-    <!-- Sekce: Svatby -->
+    <!-- Sekce 02: Svatby (Obrázek vlevo, text vpravo) -->
     <section id="svatby" class="py-32 px-6 bg-white/[0.01] section-divider">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div class="md:order-2">
                 <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">02 / Emoce</h3>
                 <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">FILMOVÉ<br>VZPOMÍNKY</h2>
                 <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Zachytíme měřítko a atmosféru vašeho dne. Od obřadů v přírodě po večerní oslavy – dron dodá vašemu svatebnímu videu filmový nádech.</p>
-                <a href="#kontakt" class="inline-block border-b border-[#00f2ff] text-[#00f2ff] pb-2 font-bold text-[10px] tracking-[0.3em] hover:text-white transition">POPTAT TERMÍN</a>
+                <div class="flex gap-8 font-bold text-[9px] tracking-[0.3em] text-[#00f2ff] opacity-80">
+                    <span>CINEMA STYL</span> <span>MOMENTY Z VÝŠKY</span>
+                </div>
             </div>
             <div class="md:order-1 glass-panel p-2 rounded-[2.5rem]">
-                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem]" alt="Svatby">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem] grayscale hover:grayscale-0 transition duration-1000" alt="Svatby">
             </div>
         </div>
     </section>
 
-    <!-- Sekce: Stavby -->
+    <!-- Sekce 03: Stavby (Text vlevo, obrázek vpravo) -->
     <section id="stavby" class="py-32 px-6 section-divider">
         <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
             <div>
@@ -162,57 +163,70 @@
                 <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">STAVEBNÍ<br>PROCES</h2>
                 <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Pravidelný monitoring postupu prací pro investory, časosběrné dokumentace a revize těžko přístupných konstrukcí.</p>
                 <div class="grid grid-cols-2 gap-8">
-                    <div class="border-l border-[#00f2ff]/30 pl-4 uppercase font-bold text-[9px] tracking-widest text-gray-500">Časosběry</div>
-                    <div class="border-l border-[#00f2ff]/30 pl-4 uppercase font-bold text-[9px] tracking-widest text-gray-500">Revize</div>
+                    <div class="border-l border-[#00f2ff]/30 pl-4 uppercase font-bold text-[9px] tracking-widest text-[#00f2ff]">Časosběry</div>
+                    <div class="border-l border-[#00f2ff]/30 pl-4 uppercase font-bold text-[9px] tracking-widest text-[#00f2ff]">Revize</div>
                 </div>
             </div>
             <div class="glass-panel p-2 rounded-[2.5rem]">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem]" alt="Stavby">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem] grayscale hover:grayscale-0 transition duration-1000" alt="Stavby">
             </div>
         </div>
     </section>
 
-    <!-- Sekce: Firmy (Redesign podle screenshotu) -->
+    <!-- Sekce 04: Firmy (Obrázek vlevo, text vpravo) -->
     <section id="firmy" class="py-32 px-6 bg-white/[0.01] section-divider">
-        <div class="max-w-6xl mx-auto text-center">
-            <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-4 uppercase">04 / Firmy</h3>
-            <h2 class="text-5xl md:text-6xl font-black mb-8 tracking-tighter uppercase">FIREMNÍ PROMO & EVENTY</h2>
-            <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-14 font-light">Představte svůj areál, hotel nebo teambuilding moderním způsobem. Záběry pro sociální sítě, které zaujmou na první pohled.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="p-8 bg-[#0a0a0c] border border-white/5 rounded-3xl hover:border-white/10 transition">
-                    <span class="font-bold text-sm">Areály firem</span>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div class="md:order-2">
+                <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">04 / Promo</h3>
+                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">FIREMNÍ<br>PRODUKCE</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Představte svůj areál, hotel nebo teambuilding moderním způsobem. Záběry pro sociální sítě, které zaujmou na první pohled.</p>
+                <div class="flex gap-8 font-bold text-[9px] tracking-[0.3em] text-[#00f2ff] opacity-80">
+                    <span>REKLAMNÍ SPOTY</span> <span>KULTURNÍ AKCE</span>
                 </div>
-                <div class="p-8 bg-[#0a0a0c] border border-white/5 rounded-3xl hover:border-white/10 transition">
-                    <span class="font-bold text-sm">Reklamní spoty</span>
-                </div>
-                <div class="p-8 bg-[#0a0a0c] border border-white/5 rounded-3xl hover:border-white/10 transition">
-                    <span class="font-bold text-sm">Kulturní akce</span>
-                </div>
+            </div>
+            <div class="md:order-1 glass-panel p-2 rounded-[2.5rem]">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem] grayscale hover:grayscale-0 transition duration-1000" alt="Firmy">
             </div>
         </div>
     </section>
 
-    <!-- Sekce: Soukromé & Inspekce (Redesign podle screenshotu) -->
-    <section class="py-32 px-6 section-divider">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-            <!-- Soukromé -->
-            <div id="soukrome" class="p-12 bg-[#0a0a0c] border border-white/5 rounded-[2.5rem] hover:border-white/10 transition group">
-                <h4 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-4 uppercase">05 / Soukromé</h4>
-                <h3 class="text-3xl font-black mb-6 uppercase tracking-tighter">FOCENÍ PRO RADOST</h3>
-                <p class="text-gray-500 font-light leading-relaxed">Foto vašeho domu v krajině, natáčení sportovních aktivit nebo originální portrét z výšky.</p>
+    <!-- Sekce 05: Soukromé (Text vlevo, obrázek vpravo) -->
+    <section id="soukrome" class="py-32 px-6 section-divider">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div>
+                <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">05 / Privátní</h3>
+                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">FOCENÍ<br>PRO RADOST</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Originální památka. Foto vašeho domu v krajině, natáčení rodinných a sportovních aktivit nebo originální portrét z výšky.</p>
+                <div class="flex gap-8 font-bold text-[9px] tracking-[0.3em] text-[#00f2ff] opacity-80">
+                    <span>RODINNÁ FOTA</span> <span>SPORT & HOBBY</span>
+                </div>
             </div>
-            
-            <!-- Inspekce -->
-            <div id="inspekce" class="p-12 bg-[#0a0a0c] border border-[#00f2ff]/20 rounded-[2.5rem] hover:border-[#00f2ff]/40 transition group">
-                <h4 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-4 uppercase">06 / Inspekce</h4>
-                <h3 class="text-3xl font-black mb-6 uppercase tracking-tighter">TECHNICKÁ KONTROLA</h3>
-                <p class="text-gray-500 font-light leading-relaxed">Místo lešení použijte dron. Rychlá kontrola střech, okapů, komínů a výškových konstrukcí.</p>
+            <div class="glass-panel p-2 rounded-[2.5rem]">
+                <!-- Obrázek domu / lifestyle -->
+                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem] grayscale hover:grayscale-0 transition duration-1000" alt="Soukromé">
             </div>
         </div>
     </section>
 
-    <!-- Kontakt - ČISTÉ ZAKONČENÍ -->
+    <!-- Sekce 06: Inspekce (Obrázek vlevo, text vpravo) -->
+    <section id="inspekce" class="py-32 px-6 bg-white/[0.01] section-divider">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+            <div class="md:order-2">
+                <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">06 / Technické</h3>
+                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none">INSPEKCE<br>STAVEB</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Místo lešení nebo plošiny použijte dron. Extrémně rychlá a bezpečná kontrola střech, okapů, komínů a výškových konstrukcí.</p>
+                <div class="flex gap-8 font-bold text-[9px] tracking-[0.3em] text-[#00f2ff] opacity-80">
+                    <span>BEZPEČNĚ</span> <span>RYCHLE & EFEKTIVNĚ</span>
+                </div>
+            </div>
+            <div class="md:order-1 glass-panel p-2 rounded-[2.5rem]">
+                <!-- Obrázek průmyslové / solární inspekce -->
+                <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&q=80&w=1000" class="rounded-[2rem] grayscale hover:grayscale-0 transition duration-1000" alt="Inspekce">
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
     <section id="kontakt" class="py-40 px-6 section-divider text-center">
         <div class="max-w-2xl mx-auto">
             <h2 class="font-orbitron text-3xl md:text-5xl font-black mb-10 tracking-tighter">PŘIPRAVENI K ODLETU?</h2>
