@@ -15,15 +15,15 @@
         }
         .font-orbitron { font-family: 'Orbitron', sans-serif; }
         
-        /* Pozadí s DJI Mini 4 Pro */
+        /* FINÁLNÍ OPRAVA POZADÍ */
         .hero-bg {
             position: relative;
             min-height: 100vh;
-            /* Použit stabilní odkaz přímo na DJI Mini 4 Pro vizuál */
+            /* Kombinace gradientu a fotky DJI Mini 4 Pro */
             background: linear-gradient(rgba(5, 5, 7, 0.5), rgba(5, 5, 7, 0.95)), 
-            url('https://images.unsplash.com/photo-1701103212035-7756f709325c?q=80&w=1920&auto=format&fit=crop');
+            url('https://images.pexels.com/photos/18790610/pexels-photo-18790610.jpeg?auto=compress&cs=tinysrgb&w=1920');
             background-size: cover;
-            background-position: center 30%; /* Posunuto trochu nahoru, aby byl dron vidět za nápisem */
+            background-position: center;
             background-attachment: fixed;
             display: flex;
             align-items: center;
@@ -59,9 +59,8 @@
 </head>
 <body>
 
-    <!-- Navigace -->
-    <nav class="fixed w-full z-50 px-6 py-4 md:px-10 nav-glass">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <nav class="fixed w-full z-50 px-6 py-4 md:px-10 nav-glass text-white">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-white">
             <div class="font-orbitron text-2xl font-black tracking-tighter uppercase">
                 VISTA<span class="text-[#00f2ff]">DRONE</span>
             </div>
@@ -75,7 +74,6 @@
         </div>
     </nav>
 
-    <!-- Hero Sekce -->
     <header class="hero-bg px-4 pt-24 pb-24">
         <div class="max-w-5xl w-full text-center">
             <span class="text-[#00f2ff] font-bold tracking-[0.4em] uppercase text-[10px] mb-6 block opacity-90">
@@ -91,7 +89,6 @@
                 </h2>
             </div>
 
-            <!-- Rozcestník služeb -->
             <div id="sluzby" class="grid grid-cols-2 md:grid-cols-3 gap-5 max-w-3xl mx-auto px-4">
                 <a href="#kontakt" class="service-card p-7 rounded-2xl group text-center">
                     <div class="text-[#00f2ff] text-3xl mb-3 group-hover:scale-110 transition-transform">🏠</div>
@@ -121,13 +118,11 @@
         </div>
     </header>
 
-    <!-- Sekce Kontakt -->
     <section id="kontakt" class="py-36 px-6 bg-[#050507] border-t border-white/5">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="font-orbitron text-4xl md:text-6xl font-black mb-10 tracking-tighter">PŘIPRAVENI K ODLETU?</h2>
+            <h2 class="font-orbitron text-4xl md:text-6xl font-black mb-10 tracking-tighter uppercase">PŘIPRAVENI K ODLETU?</h2>
             <p class="text-gray-400 mb-14 max-w-lg mx-auto text-lg font-light leading-relaxed">
                 Napište mi detaily vašeho projektu a já vám připravím nabídku na míru. 
-                Jsem k dispozici pro krátké akce i dlouhodobé projekty.
             </p>
             <a href="mailto:info@vistadrone.cz" class="text-2xl md:text-5xl font-bold text-[#00f2ff] hover:text-white transition-all border-b-4 border-[#00f2ff] pb-3">
                 info@vistadrone.cz
