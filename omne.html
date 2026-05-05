@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Mně & Technika | VISTADRONE</title>
+    
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="%230a0a0c"/><text x="14" y="74" font-family="Arial, sans-serif" font-weight="900" font-size="62" fill="%23ffffff">V</text><text x="48" y="74" font-family="Arial, sans-serif" font-weight="900" font-size="62" fill="%2300f2ff">D</text></svg>'>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #050507; color: white; font-family: 'Inter', sans-serif; margin: 0; }
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        .glass-panel { background: rgba(255, 255, 255, 0.015); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); }
+        .section-divider { border-top: 1px solid rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<body>
+
+    <!-- Navigace (odkazy vedou zpět na index.html) -->
+    <nav class="fixed w-full z-50 px-6 py-4 md:px-12 bg-black/80 backdrop-blur-md border-b border-white/5 flex justify-between items-center">
+        <a href="index.html" class="font-orbitron text-xl font-black tracking-tighter uppercase relative z-50">
+            VISTA<span class="text-[#00f2ff]">DRONE</span>
+        </a>
+        
+        <!-- PC Menu -->
+        <div class="hidden xl:flex space-x-6 text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400 items-center">
+            <a href="index.html" class="hover:text-white transition">← Zpět na hlavní web</a>
+            <a href="index.html#kontakt" class="text-[#00f2ff] hover:brightness-125 ml-4">Kontakt</a>
+        </div>
+
+        <!-- Mobilní menu tlačítko (jednoduché pro návrat) -->
+        <a href="index.html" class="xl:hidden text-white text-xs font-bold uppercase tracking-widest border border-white/20 px-4 py-2 rounded-full">
+            Zpět
+        </a>
+    </nav>
+
+    <!-- O MNĚ A TECHNIKA -->
+    <section class="pt-40 pb-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="text-center mb-20">
+                <h1 class="font-orbitron text-5xl md:text-8xl font-black tracking-tighter uppercase mb-4">Pilot & Technika</h1>
+                <p class="text-[#00f2ff] font-bold uppercase text-[10px] tracking-[0.4em]">Zázemí VISTADRONE</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <!-- Informace o pilotovi -->
+                <div>
+                    <h3 class="font-orbitron text-[#00f2ff] text-[10px] font-bold tracking-[0.4em] mb-6 uppercase">Profil</h3>
+                    <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter leading-none">BEZPEČNĚ &<br>PROFESIONÁLNĚ</h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6 font-light">
+                        Jsem licencovaný pilot bezpilotních systémů s registrací u Úřadu pro civilní letectví (ÚCL). Bezpečnost vašeho majetku a osob je pro mě vždy na prvním místě.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">
+                        Každý let je pečlivě naplánován s ohledem na aktuální legislativu, vzdušný prostor a povětrnostní podmínky. Samozřejmostí je pojištění odpovědnosti pro komerční lety. 
+                    </p>
+                    <div class="flex items-center gap-4 text-[#00f2ff]">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="font-bold text-[10px] uppercase tracking-widest">Certifikace ÚCL (Kategorie A1/A3)</span>
+                    </div>
+                </div>
+
+                <!-- Box s Technikou -->
+                <div class="glass-panel p-10 md:p-14 rounded-[3rem] border-[#00f2ff]/20 bg-gradient-to-br from-white/[0.02] to-[#00f2ff]/[0.05] shadow-2xl relative overflow-hidden">
+                    <!-- Jemná glow aura na pozadí boxu -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-[#00f2ff] opacity-10 blur-[100px] rounded-full"></div>
+                    
+                    <h4 class="font-orbitron text-2xl font-black tracking-tighter mb-8 relative z-10">MOJE TECHNIKA</h4>
+                    <div class="mb-10 relative z-10">
+                        <span class="block text-[#00f2ff] text-2xl md:text-3xl font-black tracking-tight mb-4">DJI MINI 4 PRO</span>
+                        <p class="text-gray-400 text-sm leading-relaxed">Špičkový moderní dron s všesměrovým snímáním překážek, schopný létat i v náročnějších prostorech s minimálním rizikem. Díky nízké váze (do 249 g) má také výhodnější legislativní podmínky pro létání.</p>
+                    </div>
+                    
+                    <ul class="space-y-5 relative z-10">
+                        <li class="flex items-start gap-4">
+                            <div class="w-2 h-2 rounded-full bg-[#00f2ff] mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-300 font-light text-sm"><strong>4K HDR Video (až 60 fps)</strong> pro dokonale plynulý a prokreslený filmový obraz i ve stínech.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-2 h-2 rounded-full bg-[#00f2ff] mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-300 font-light text-sm"><strong>Nativní vertikální snímání</strong> – kamera se fyzicky otočí o 90 stupňů, ideální výstup pro Instagram a TikTok bez ořezu kvality.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-2 h-2 rounded-full bg-[#00f2ff] mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-300 font-light text-sm"><strong>10-bit D-Log M barevný profil</strong> – profi formát pro pokročilý color grading v postprodukci.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-2 h-2 rounded-full bg-[#00f2ff] mt-2 flex-shrink-0"></div>
+                            <span class="text-gray-300 font-light text-sm"><strong>48 Mpx RAW fotografie</strong> – ostré fotky plné detailů vhodné pro velkoformátový tisk.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black text-center text-gray-800 text-[8px] uppercase tracking-[0.5em] border-t border-white/5">
+        © 2026 VISTADRONE • Pilot certifikovaný ÚCL • A1/A3
+    </footer>
+
+</body>
+</html>
